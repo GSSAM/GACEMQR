@@ -1,0 +1,7 @@
+{
+  "name": "QR One-Time Manager",
+  "description": "A fully local, offline app for generating, exporting, and verifying one-time use QR codes.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
