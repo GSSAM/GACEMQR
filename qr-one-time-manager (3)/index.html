@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111827" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/714/714390.png" />
+    <title>مدير أكواد QR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "jspdf": "https://esm.sh/jspdf@^3.0.4",
+    "html5-qrcode": "https://esm.sh/html5-qrcode@^2.3.8",
+    "vite": "https://esm.sh/vite@^7.3.0",
+    "qrcode": "https://esm.sh/qrcode@^1.5.4"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-gray-50 text-gray-900 font-sans">
+    <div id="root"></div>
+    <!-- تم إزالة importmap لأن Vite سيتكفل بالربط أثناء البناء -->
+    <!-- تم تعديل المسار من /index.tsx إلى ./index.tsx -->
+    <script type="module" src="./index.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          // استخدام مسار نسبي مرن للـ Service Worker
+          const swPath = window.location.pathname.endsWith('/') 
+            ? 'sw.js' 
+            : './sw.js';
+          navigator.serviceWorker.register(swPath)
+            .then(reg => console.log('Service Worker Registered'))
+            .catch(err => console.error('Service Worker Registration Failed', err));
+        });
+      }
+    </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
